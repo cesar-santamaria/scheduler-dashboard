@@ -30,11 +30,13 @@ const data = [
 
 export default class Dashboard extends Component {
   state = { loading: false, focused: null }
+
   selectPanel(id) {
-    this.setState(previousState => ({
+    this.setState((previousState) => ({
       focused: previousState.focused !== null ? null : id
     }));
    }
+
   render() {
     
     const dashboardClasses = classnames("dashboard", {
@@ -50,7 +52,7 @@ export default class Dashboard extends Component {
         id={panel.id} 
         label={panel.label} 
         value={panel.value}
-        onSelect={() => this.selectPanel(panel.id)}
+        onSelect={()=>this.selectPanel(panel.id)}
       />
     ))
 
